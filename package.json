@@ -1,0 +1,23 @@
+{
+  "name": "exasol-websocket-api",
+  "version": "0.1.0",
+  "description": "Websocket connector for Exasol database server. This fork exists only to create an npm package of an existing websocket-api repo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wvezey/websocket-api.git"
+  },
+  "keywords": [
+    "exasol",
+    "websocket-api"
+  ],
+  "author": "Exasol, Johannes Childgren", "Bill Vezey"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wvezey/websocket-api/issues"
+  },
+  "homepage": "https://github.com/wvezey/websocket-api#readme"
+}
