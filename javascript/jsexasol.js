@@ -1,6 +1,8 @@
 wsjsapi = require('./wsjsapi');
 
 class ExasolConnection {
+
+    .]\/*
     account = null;
     username = null;
     password = null;
@@ -8,11 +10,18 @@ class ExasolConnection {
     exa_con = null;
 
     static FETCH_BATCH_SIZE = 1024*100;
+    */
 
     constructor(account, username, password) {
         this.account = account
         this.username = username
         this.password = password
+        this.sessionId = null;
+        this.exa_con = null;
+        this.FETCH_BATCH_SIZE = 1024*100;
+        this.rows = [];
+        this.numRows_total = 0;
+        this.numRows_current_pos = 0;
     }
 
     connect(callback) {
@@ -50,14 +59,16 @@ class ExasolConnection {
         return rows
     }
 
+    /*
     rows = []
     numRows_total = 0
     numRows_current_pos = 0
+    */
 
     fetch_next_batch(resultSet, columns, stmt, callback) {
         var err = null
         var conn = this
-        conn.exa_con.fetch(resultSet, conn.numRows_current_pos, ExasolConnection.FETCH_BATCH_SIZE,
+        conn.exa_con.fetch(resultSet, conn.numRows_current_pos, this.FETCH_BATCH_SIZE,
             function (res) {
                 var new_rows = ExasolConnection.get_rows(res, columns)
                 conn.numRows_current_pos += parseInt(res.numRowsInMessage);

@@ -1,2 +1,1 @@
-const exasol = require("javascript/jsexasol.js");
-return exasol;
+module.exports = require("./javascript/jsexasol");
