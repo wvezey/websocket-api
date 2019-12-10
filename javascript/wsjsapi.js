@@ -440,6 +440,12 @@ module.exports = {
             throw "onresponse argument is not a function";
         reqdata = JSON.stringify(request);
         context.connection.onmessage = function(repdata) {
+
+            console.log(`inside wsjsapi context.com() definition`);
+            for(var item in repdata) {
+                console.log(`${item}: ${repdata[item]}`);
+            }  
+
             context.inwork = false;
             try {
                 context.connection.onmessage = function(rd) {
@@ -497,6 +503,12 @@ module.exports = {
     context.connection.onopen = function () {
         context.com({"command": "login", "protocolVersion": 1},
                     function(response) {
+
+                        console.log(`inside wsjsapi onopen for login`);
+                        for (var item in response) {
+                            console.log(`${item}: ${response[item]}`);
+                        }
+
                         var pw = pw_encode(pass,
                                            response['publicKeyExponent'],
                                            response['publicKeyModulus']);
